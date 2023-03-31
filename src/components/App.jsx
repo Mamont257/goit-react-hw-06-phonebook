@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -35,21 +35,21 @@ export function App() {
   //   setContacts(contacts.filter(({ id }) => id !== ContactId));
   // }
 
-  function handleSubmit(value, { resetForm }) {
-    let newContact = value;
+  // function handleSubmit(value, { resetForm }) {
+  //   let newContact = value;
 
-    const check = contacts.filter(
-      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
-    );
+  //   const check = contacts.filter(
+  //     contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+  //   );
 
-    if (check.length) {
-      alert(`${newContact.name} is already in contacts`);
-    } else {
-      newContact.id = nanoid();
-      setContacts(prevState => [...prevState, newContact]);
-    }
-    resetForm();
-  }
+  //   if (check.length) {
+  //     alert(`${newContact.name} is already in contacts`);
+  //   } else {
+  //     newContact.id = nanoid();
+  //     setContacts(prevState => [...prevState, newContact]);
+  //   }
+  //   resetForm();
+  // }
 
   function handleFilter(e) {
     setFilter(e.target.value);
@@ -58,7 +58,7 @@ export function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm onLeaveContact={handleSubmit} />
+      <ContactForm />
       <h2>Contacts</h2>
       <Filter onFilter={handleFilter} />
       <ContactList />

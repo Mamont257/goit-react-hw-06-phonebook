@@ -5,7 +5,7 @@ import {
   ContactBtn,
 } from './ContactList.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/reducerSlice';
+import { deleteContact } from '../../redux/contactsSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts);
