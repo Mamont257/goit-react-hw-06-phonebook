@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Form, FormField } from './ContactForm.styled';
@@ -33,9 +32,10 @@ export const ContactForm = () => {
     <Formik
       initialValues={{ name: '', number: '' }}
       validationSchema={ContactSchema}
-      onSubmit={(value, { resetForm }) => (
-        dispatch(addContact({ value })), resetForm()
-      )}
+      onSubmit={(value, { resetForm }) => {
+        dispatch(addContact(value));
+        resetForm();
+      }}
     >
       <Form>
         <FormField>
@@ -58,7 +58,3 @@ export const ContactForm = () => {
     </Formik>
   );
 };
-
-// ContactForm.propTypes = {
-//   onLeaveContact: PropTypes.func.isRequired,
-// };

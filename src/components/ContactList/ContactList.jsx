@@ -19,7 +19,6 @@ export const ContactList = () => {
   }
 
   const visibleContacts = getVisibleContacts(contacts, filter);
-  // console.log(filter);
 
   return (
     <ContactsList>

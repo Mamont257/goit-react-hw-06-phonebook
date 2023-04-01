@@ -11,22 +11,17 @@ const tasksInitialState = [
 const tasksSlice = createSlice({
   name: 'contacts',
   initialState: tasksInitialState,
-
   reducers: {
     addContact: {
       reducer(state, action) {
-        let newContact = action.payload.name;
+        let { name } = action.payload;
 
         const check = state.filter(
-          contact => contact.name.toLowerCase() === newContact.toLowerCase()
+          contact => contact.name.toLowerCase() === name.toLowerCase()
         );
 
-        // const a = state.includes(action.payload.name.toLowerCase());
-
-        // console.log(newContact);
-
         if (check.length) {
-          alert(`${newContact} is already in contacts`);
+          alert(`${name} is already in contacts`);
         } else {
           state.push(action.payload);
         }
@@ -34,34 +29,19 @@ const tasksSlice = createSlice({
       prepare(data) {
         return {
           payload: {
-            name: data.value.name,
+            ...data,
             id: nanoid(),
-            number: data.value.number,
-            // reset: data.resetForm(),
           },
         };
       },
     },
-    // addContact(state, action) {
-    //   console.log(action.payload.value);
-    //   let newContact = action.payload.value;
-    //   newContact.id = nanoid();
-    //   state.push(newContact);
-
-    //   action.payload.resetForm();
-    // },
     deleteContact(state, action) {
       return state.filter(({ id }) => id !== action.payload); //return бо ми не мотуємо стан
-      // console.log(a);
       // const index = state.findIndex(task => task.id === action.payload);
       // state.splice(index, 1); // при мутації return непотрібний
     },
   },
 });
-
-// console.log(tasksSlice);
-
-// console.log(tasksSlice.actions.deleteContact());
 
 export const { addContact, deleteContact } = tasksSlice.actions;
 export const tasksReducer = tasksSlice.reducer;

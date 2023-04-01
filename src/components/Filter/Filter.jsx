@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
 import { FilterLabel, FilterInput } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'redux/filterSlice';
 
-export const Filter = ({ onFilter }) => {
+export const Filter = () => {
   const dispatch = useDispatch();
   return (
     <FilterLabel>
@@ -15,7 +14,3 @@ export const Filter = ({ onFilter }) => {
     </FilterLabel>
   );
 };
-
-// Filter.propTypes = {
-//   onFilter: PropTypes.func.isRequired,
-// };
