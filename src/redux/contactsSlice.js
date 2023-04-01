@@ -21,8 +21,12 @@ const tasksSlice = createSlice({
           contact => contact.name.toLowerCase() === newContact.toLowerCase()
         );
 
+        // const a = state.includes(action.payload.name.toLowerCase());
+
+        // console.log(newContact);
+
         if (check.length) {
-          alert(`${newContact.name} is already in contacts`);
+          alert(`${newContact} is already in contacts`);
         } else {
           state.push(action.payload);
         }
@@ -33,7 +37,7 @@ const tasksSlice = createSlice({
             name: data.value.name,
             id: nanoid(),
             number: data.value.number,
-            reset: data.resetForm(),
+            // reset: data.resetForm(),
           },
         };
       },

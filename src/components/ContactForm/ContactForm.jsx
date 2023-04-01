@@ -33,9 +33,9 @@ export const ContactForm = () => {
     <Formik
       initialValues={{ name: '', number: '' }}
       validationSchema={ContactSchema}
-      onSubmit={(value, { resetForm }) =>
-        dispatch(addContact({ value, resetForm }))
-      }
+      onSubmit={(value, { resetForm }) => (
+        dispatch(addContact({ value })), resetForm()
+      )}
     >
       <Form>
         <FormField>

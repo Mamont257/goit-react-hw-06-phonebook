@@ -16,20 +16,20 @@ export function App() {
       ]
     );
   });
-  const [filter, setFilter] = useState('');
-  const [filterContact, setFilterContact] = useState([]);
+  // const [filter, setFilter] = useState('');
+  // const [filterContact, setFilterContact] = useState([]);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts)); //записує в LocalStorage нові контакти
   }, [contacts]);
 
-  useEffect(() => {
-    setFilterContact(
-      contacts.filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    );
-  }, [filter, contacts]);
+  // useEffect(() => {
+  //   setFilterContact(
+  //     contacts.filter(contact =>
+  //       contact.name.toLowerCase().includes(filter.toLowerCase())
+  //     )
+  //   );
+  // }, [filter, contacts]);
 
   // function handleDelete(ContactId) {
   //   setContacts(contacts.filter(({ id }) => id !== ContactId));
@@ -51,16 +51,16 @@ export function App() {
   //   resetForm();
   // }
 
-  function handleFilter(e) {
-    setFilter(e.target.value);
-  }
+  // function handleFilter(e) {
+  //   setFilter(e.target.value);
+  // }
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-      <Filter onFilter={handleFilter} />
+      <Filter />
       <ContactList />
     </div>
   );
